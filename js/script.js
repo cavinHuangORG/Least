@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$('#input, #variables').on('input propertychange', parseInput);
 	$('label.radio,label.checkbox').click(parseInput);
 
-	var demoURL='css/_demo.css';
+	var demoURL='css/demo.css';
 	$.get(demoURL, function(val) {
 		demoCSS=val;
 		$('.btn.demo').click(function() {
