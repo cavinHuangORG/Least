@@ -1,8 +1,16 @@
+/* Outside Comment */
 header {
 	padding:20px;
 }
 header h1 { /* Nesting */
 	font-size:24px;
+	_font-size: 25px;
+	*font-size: 26px;
+	-webkit-box-shadow: 0 0 0 rgba(0,0,0,0.9);
+	-ms-box-shadow: 0 0 0 rgba(0,0,0,0.9);
+	-moz-box-shadow: 0 0 0 rgba(0,0,0,0.9);
+	-o-box-shadow: 0 0 0 rgba(0,0,0,0.9);
+	box-shadow: 0 0 0 rgba(0,0,0,0.9);
 }
 header h1 a {
 	text-decoration:none;
@@ -11,11 +19,11 @@ header h1 a:hover { /* Pseudo-classes */
 	text-decoration:underline;
 }
 header h1 a:hover span {
-	color:red;
+	color: #f00;
 }
 header img {
 	border:none;
 }
 header img.glow { /* Classes */
-	border:solid 1px blue;
+	border:solid 1px #f00;
 }
