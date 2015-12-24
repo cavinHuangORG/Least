@@ -15,7 +15,7 @@ $(document).ready(function() {
 		demoCSS=val;
 		$('.btn.demo').click(function() {
 			$('#input').val(demoCSS);
-			$('#variables').val('@red:#f00;\n@border:solid 1px #f00;\n//sass and stylus syntax are also supported');
+			$('#variables').val('@red:#f00;\n@border:solid 1px #f00;\n//sass and stylus syntax are supported too');
 			parseInput();
 		});
 	});
