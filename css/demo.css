@@ -17,6 +17,8 @@ header h1 a {
 }
 header h1 a:hover { /* Pseudo-classes */
 	text-decoration:underline;
+	/* Data URL */
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=) 0 0 no-repeat;
 }
 header h1 a:hover span {
 	color: #f00;

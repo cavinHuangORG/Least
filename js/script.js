@@ -15,7 +15,7 @@ $(document).ready(function() {
 		demoCSS=val;
 		$('.btn.demo').click(function() {
 			$('#input').val(demoCSS);
-			$('#variables').val('@red:#f00;\n@border:solid 1px #f00;\n//sass and stylus syntax are also supported');
+			$('#variables').val('@red:#f00;\n@border:solid 1px #f00;\n//sass and stylus syntax are supported too');
 			parseInput();
 		});
 	});
@@ -35,6 +35,7 @@ var keepinsideComments;
 var removeHacks;
 var vars = {};
 var comments = {};
+var dataURLs = {};
 
 function trimColor(str){
 	return str.replace(/#([0-9a-f]{3}|[0-9a-f]{6})\b/ig, function (a) {
@@ -127,11 +128,22 @@ function parseCSS(s) {
 		})+'}';
 	});
 
+
 	//outside comments to fake selectors;
 	s=s.replace(/\t{10} +\t{10}/g, function (a){
 		a = decodeMark(a);
 		return '.__comment__-'+a+' { index: '+a+';}'
 	});
+
+
+	dataURLs = {};
+
+	//dataURL to fake url
+	s=s.replace(/url\((data:[^\)]+)\)/gm, function (a, dataURL){
+		dataURLs[++i] = dataURL;
+		return 'url(__data__'+ i +')';
+	})
+
 
 	s.replace(/([^{]+)\{([^}]+)\}/g, function(group, selector, declarations) {
 		var o={};
@@ -231,6 +243,11 @@ function exportObject(path) {
 
 	// Remove blank lines - http://stackoverflow.com/a/4123442
 	s=s.replace(/^\s*$[\n\r]{1,}/gm, '');
+
+
+	s=s.replace(/url\(__data__(\d+)\)/gm, function (a, i){
+		return 'url('+dataURLs[i]+')';
+	})
 
 	return s;
 }
