@@ -2,7 +2,7 @@
 
 Least helps you move from your old-fashioned CSS files to something shiny: CSS pre-processors!
 
-This project is forked form [quentint/Least](https://github.com/quentint/Least).
+This project is forked from [quentint/Least](https://github.com/quentint/Least).
 
 # Features
 
